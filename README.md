@@ -5,10 +5,10 @@ It relies on mysql database to store and retrieve data.
 
 The api is hosted on pythonanywhere and can be accessed at:
     https://gachenge.pythonanywhere.com/
-    The endpoint to get a list of all people in the databasde is at: https://gachenge.pythonanywhere.com/api
+    The endpoint to get a list of all people in the databasde is at: https://gachenge.pythonanywhere.com/api/all
     
     Add a new person
-    https://gachenge.pythonanywhere.com/add, with a post request. All we need is a name to add. Structure the data as
+    https://gachenge.pythonanywhere.com/api, with a post request. All we need is a name to add. Structure the data as
     a key, value pair eg, {'name': "Michael Essien"}.
     With this, Michael Essien is added to the database, and a unique id is automatically generated for him.
 

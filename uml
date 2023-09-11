@@ -1,8 +1,8 @@
         +------------------+
         |    Flask App     |
         +------------------+
-        | - /people        |
-        | - /add           |
+        | - /api           |
+        | - /api/all       |
         | - /person/<int:user_id>
         |       -GET       |
         |       -PUT       |

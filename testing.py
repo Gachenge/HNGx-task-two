@@ -3,6 +3,7 @@ import json
 
 url = 'https://gachenge.pythonanywhere.com/api'
 
+
 def allPeople():
     people = f'{url}'
     response = requests.get(people)
@@ -11,6 +12,7 @@ def allPeople():
         return response.json()
     else:
         return f"Error: {response.status_code}"
+
 
 def addPerson(data):
     add = f'{url}/add'
@@ -22,6 +24,7 @@ def addPerson(data):
     else:
         return f"Error {response.status_code}"
 
+
 def getPerson(user_id):
     getp = f'{url}/person/{user_id}'
     headers = {'Content-type': 'application/json'}
@@ -31,6 +34,7 @@ def getPerson(user_id):
         return response.json()
     else:
         return f"Error {response.status_code}"
+
 
 def updPerson(user_id, data):
     upd = f'{url}/person/{user_id}'
@@ -42,6 +46,7 @@ def updPerson(user_id, data):
     else:
         return f"Error {response.status_code}"
 
+
 def delPerson(user_id):
     dele = f'{url}/person/{user_id}'
     headers = {'Content-type': 'application/json'}
@@ -51,6 +56,7 @@ def delPerson(user_id):
         return response.json()
     else:
         return f"Error {response.status_code}"
+
 
 print(allPeople())
 
@@ -63,4 +69,3 @@ newName = {'name': 'James Essien'}
 print(updPerson(3, newName))
 
 print(delPerson(4))
-
