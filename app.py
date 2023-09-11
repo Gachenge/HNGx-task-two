@@ -33,7 +33,7 @@ def addPerson():
     return jsonify(resd)
 
 
-@app.route('/api/person/<int:user_id>')
+@app.route('/api/<int:user_id>')
 def getPerson(user_id):
     person = Person.query.filter_by(id=user_id).first()
     if person:
@@ -41,7 +41,7 @@ def getPerson(user_id):
     return jsonify({"Error": "Person not found"}), 404
 
 
-@app.route('/api/person/<int:user_id>', methods=['GET', 'PUT'])
+@app.route('/api/<int:user_id>', methods=['GET', 'PUT'])
 def updPerson(user_id):
     person = Person.query.filter_by(id=user_id).first()
     if person:
@@ -52,7 +52,7 @@ def updPerson(user_id):
     return jsonify({"Error": "Person not found"}), 404
 
 
-@app.route('/api/person/<int:user_id>', methods=['GET', 'DELETE'])
+@app.route('/api/<int:user_id>', methods=['GET', 'DELETE'])
 def delPerson(user_id):
     person = Person.query.filter_by(id=user_id).first()
     if person:
@@ -62,7 +62,7 @@ def delPerson(user_id):
     return jsonify({"Error": "Person not found"}), 404
 
 
-@app.route('/api/person/<string:name>', methods=['GET'])
+@app.route('/api/<string:name>', methods=['GET'])
 def get_person_by_name(name):
     person = Person.query.filter_by(name=name).first()
     if person:

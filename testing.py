@@ -26,7 +26,7 @@ def addPerson(data):
 
 
 def getPerson(user_id):
-    getp = f'{url}/api/person/{user_id}'
+    getp = f'{url}/api/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.get(getp, headers=headers)
 
@@ -37,7 +37,7 @@ def getPerson(user_id):
 
 
 def updPerson(user_id, data):
-    upd = f'{url}/api/person/{user_id}'
+    upd = f'{url}/api/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.put(upd, headers=headers, data=json.dumps(data))
 
@@ -48,7 +48,7 @@ def updPerson(user_id, data):
 
 
 def delPerson(user_id):
-    dele = f'{url}/api/person/{user_id}'
+    dele = f'{url}/api/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.delete(dele, headers=headers)
 

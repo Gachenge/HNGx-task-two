@@ -1,9 +1,9 @@
         +------------------+
         |    Flask App     |
         +------------------+
-        | - /api           |
-        | - /api/all       |
-        | - /person/<int:user_id>
+        | - /              |
+        | - /api           |       |
+        | - /<int:user_id>
         |       -GET       |
         |       -PUT       |
         |       -DELETE    |
