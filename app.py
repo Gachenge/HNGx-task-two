@@ -13,24 +13,20 @@ class Person(db.Model):
     name = db.Column(db.String(255), nullable=False)
 
 
-@app.route('/')
-def getPeople():
-    people = Person.query.all()
-    peop = [{"id": person.id, "name": person.name} for person in people]
-    return jsonify(peop)
-
-
 @app.route('/api', methods=['GET', 'POST'])
 def addPerson():
     if request.method == 'POST':
-        name = request.json.get('name')
+        name = request.args.get('name')
+        if not isinstance(name, str):
+            return jsonify({"Error": "Name must be string"})
         person = Person(name=name)
         db.session.add(person)
         db.session.commit()
         res = f"{name} added successfully"
         return jsonify(res)
-    resd = "Error: bad request"
-    return jsonify(resd)
+    people = Person.query.all()
+    peop = [{"id": person.id, "name": person.name} for person in people]
+    return jsonify(peop)
 
 
 @app.route('/api/<int:user_id>')
@@ -45,7 +41,9 @@ def getPerson(user_id):
 def updPerson(user_id):
     person = Person.query.filter_by(id=user_id).first()
     if person:
-        nami = request.json.get('name')
+        nami = request.args.get('name')
+        if not isinstance(nami, str):
+            return jsonify({"Error": "Name must be string"})
         person.name = nami
         db.session.commit()
         return jsonify({"id": person.id, "name": person.name})
