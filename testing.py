@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = 'https://gachenge.pythonanywhere.com/api'
+url = 'https://gachenge.pythonanywhere.com'
 
 
 def allPeople():
@@ -15,7 +15,7 @@ def allPeople():
 
 
 def addPerson(data):
-    add = f'{url}/add'
+    add = f'{url}/api'
     headers = {'Content-type': 'application/json'}
     response = requests.post(add, headers=headers, data=json.dumps(data))
 
@@ -26,7 +26,7 @@ def addPerson(data):
 
 
 def getPerson(user_id):
-    getp = f'{url}/person/{user_id}'
+    getp = f'{url}/api/person/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.get(getp, headers=headers)
 
@@ -37,7 +37,7 @@ def getPerson(user_id):
 
 
 def updPerson(user_id, data):
-    upd = f'{url}/person/{user_id}'
+    upd = f'{url}/api/person/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.put(upd, headers=headers, data=json.dumps(data))
 
@@ -48,7 +48,7 @@ def updPerson(user_id, data):
 
 
 def delPerson(user_id):
-    dele = f'{url}/person/{user_id}'
+    dele = f'{url}/api/person/{user_id}'
     headers = {'Content-type': 'application/json'}
     response = requests.delete(dele, headers=headers)
 
@@ -60,7 +60,7 @@ def delPerson(user_id):
 
 print(allPeople())
 
-newPerson = {'name': 'Lionnel Messi'}
+newPerson = {'name': 'James May'}
 print(addPerson(newPerson))
 
 print(getPerson(2))
